@@ -11,6 +11,7 @@
 <script src="js/quzou.js"></script>
 <script src="js/zouluzhuan.js"></script>
 <script>
+    //趣走
     var test = document.getElementById('test');
     var flag = 0;
     var interwalTime = 0;
@@ -62,7 +63,7 @@
         test.innerHTML = ++flag;
         j = randomNum(1, 4);
         if (flag < 700) {
-            interwalTime = randomNum(30011, 40000);
+            interwalTime = randomNum(15011, 20000);
             i = setInterval("run()", interwalTime);
         } else {
             flag = 0;
@@ -98,6 +99,37 @@
     var i = setInterval("run()", interwalTime);
 
     var k = setInterval("zdRun()", m);
+
+    //走路赚
+    var myFlag = 0,num = 0;
+    var myInterwalTime = 0;
+
+    function zRun() {
+        clearInterval(i);
+        test.innerHTML = ++myFlag;
+        if (myFlag < 500){
+            num = randomNum(0,2);
+            myInterwalTime = randomNum(30001,60000);
+            i = setInterval("zRun()", myInterwalTime);
+        }
+        zCoin = randomNum(15, 18);
+        if (myFlag <= 3) {
+            zLogin();
+            zBushu1();
+            zBushu2(myInterwalTime);
+        }
+        if (num == 0) {
+            zVideos();
+        }
+        if (num == 1) {
+            zBox();
+        }
+        if (num == 2) {
+            zHome(zCoin);
+        }
+        zZhuanPan();
+    }
+    var l = setInterval("zRun()", myInterwalTime);
 
 </script>
 </body>
