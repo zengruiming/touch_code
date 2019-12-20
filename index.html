@@ -105,12 +105,12 @@
     var myInterwalTime = 0;
 
     function zRun() {
-        clearInterval(i);
+        clearInterval(l);
         test.innerHTML = ++myFlag;
         if (myFlag < 500){
             num = randomNum(0,2);
             myInterwalTime = randomNum(30001,60000);
-            i = setInterval("zRun()", myInterwalTime);
+            l = setInterval("zRun()", myInterwalTime);
         }
         zCoin = randomNum(15, 18);
         if (myFlag <= 3) {
