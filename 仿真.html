@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=320,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+    <!--    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div id="test" style="font-size:64px;text-align:center;">0</div>
+<script src="js/quzou.js"></script>
+<script src="js/zouluzhuan.js"></script>
+<script>
+    var test = document.getElementById('test');
+    var flag = 0,num = 0;
+    var interwalTime = 0;
+
+    //走路赚
+    function zRun() {
+        clearInterval(i);
+        test.innerHTML = ++flag;
+        if (flag < 500){
+          num = randomNum(0,2);
+          interwalTime = randomNum(30001,60000);
+          i = setInterval("zRun()", interwalTime);
+        }
+        zCoin = randomNum(15, 18);
+        if (flag <= 3) {
+            zLogin();
+            zBushu1();
+            zBushu2(interwalTime);
+        }
+        if (num == 0) {
+        zVideos();
+        }
+        if (num == 1) {
+        zBox();
+        }
+        if (num == 2) {
+        zHome(zCoin);
+        }
+        zZhuanPan();
+    }
+    var i = setInterval("zRun()", interwalTime);
+
+</script>
+</body>
+</html>
